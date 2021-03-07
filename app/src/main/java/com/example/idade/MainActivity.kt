@@ -30,12 +30,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun clickButton(view: View){
-        val pessoa = Pessoa(nome.toString(),ano.toString().toInt())
-        val idade = pessoa.idade()
+        //val pessoa = Pessoa(nome.toString(),ano.toString().toInt())
+        //val idade = pessoa.idade()
 
         val intent = Intent(this,OutraActivity::class.java)
-        //intent.putExtra("MSG_RESULTADO","você possui ")
-        intent.putExtra("MSG_RESULTADO","${pessoa.nome} , você possui ${idade} anos!")
+        intent.putExtra("MSG_RESULTADO","Teste Envio de Msg")
+        //intent.putExtra("MSG_RESULTADO","${pessoa.nome} , você possui ${idade} anos!")
         startActivity(intent)
 
     }
