@@ -13,8 +13,8 @@ import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
     private lateinit var btCalcular: Button
-    private lateinit var nome: EditText
-    private lateinit var ano: EditText
+    private lateinit var etNome: EditText
+    private lateinit var etAno: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,19 +23,20 @@ class MainActivity : AppCompatActivity() {
         this.btCalcular = findViewById(R.id.btnMainCalcular)
         this.btCalcular.setOnClickListener({clickButton(it)})
 
-        this.nome = findViewById(R.id.txtNome)
-        this.ano = findViewById(R.id.txtAno)
+        this.etNome = findViewById(R.id.txtNome)
+        this.etAno = findViewById(R.id.txtAno)
 
 
     }
 
-    fun clickButton(view: View){
-        //val pessoa = Pessoa(nome.toString(),ano.toString().toInt())
-        //val idade = pessoa.idade()
+    private fun clickButton(view: View){
+        val nome: String = this.etNome.text.toString()
+        val ano = this.etAno.text.toString().toInt()
+
+        val pessoa = Pessoa(nome,ano)
 
         val intent = Intent(this,OutraActivity::class.java)
-        intent.putExtra("MSG_RESULTADO","Teste Envio de Msg")
-        //intent.putExtra("MSG_RESULTADO","${pessoa.nome} , você possui ${idade} anos!")
+        intent.putExtra("PESSOA",pessoa)
         startActivity(intent)
 
     }

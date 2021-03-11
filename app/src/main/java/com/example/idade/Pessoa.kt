@@ -1,16 +1,15 @@
 package com.example.idade
 
 import android.widget.TextView
+import java.io.Serializable
 
-class Pessoa(nome: String, ano: Int) {
+class Pessoa : Serializable{
     var nome: String
     var ano: Int
-
-    init {
+    constructor(nome: String, ano: Int){
         this.nome = nome
         this.ano = ano
     }
-
     fun idade(): Int{
         return 2021 - this.ano
     }
